@@ -1,0 +1,20 @@
+
+import string
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+
+    
+dr = webdriver.Chrome('C:/tools/chromedriver_win32/chromedriver.exe') 
+dr.implicitly_wait(3)
+
+dr.get("https://google.com/")
+dr.get('https://sejong.korea.ac.kr/campuslife/facilities/dining/weeklymenu') 
+
+def photo():
+    dr.find_elements(By.CSS_SELECTOR, '/html/body/div[2]/div[6]/div/div[3]/div[2]/div[1]/div[2]/p[2]/span/a[2]').click()
+    return dr.get_screenshot_as_png
+
+
+
